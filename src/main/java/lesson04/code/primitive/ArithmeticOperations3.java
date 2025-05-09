@@ -1,4 +1,4 @@
-package lesson04.code;
+package lesson04.code.primitive;
 
 public class ArithmeticOperations3 {
 

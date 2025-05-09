@@ -1,4 +1,4 @@
-package lesson04.code;
+package lesson04.code.primitive;
 
 public class LessonCode01 {
     public static void main(String[] args) {
