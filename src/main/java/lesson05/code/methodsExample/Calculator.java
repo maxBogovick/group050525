@@ -12,4 +12,16 @@ public class Calculator {
         result = x / y;
     }
 
+    public void sum(){
+        result = x + y;
+    }
+
+    public void sub(){
+        result = x - y;
+    }
+
+    public void multi(){
+        result = x * y;
+    }
 }
+
