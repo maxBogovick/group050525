@@ -21,5 +21,7 @@ public class UserApp {
         User user = new User(name,email,address,password,department);
 
         System.out.println(user);
+
+        scanner.close();
     }
 }
