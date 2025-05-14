@@ -2,13 +2,10 @@ package lesson07.code.practice.task1;
 
 import lesson07.code.scanner.UserInput;
 
-import java.util.Scanner;
-
 public class UserApp {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        UserInput userInput = new UserInput(scanner);
+        UserInput userInput = new UserInput();
 
         System.out.println("Ввод данных для регистрации нового пользователя: ");
 
@@ -22,6 +19,5 @@ public class UserApp {
 
         System.out.println(user);
 
-        scanner.close();
     }
 }

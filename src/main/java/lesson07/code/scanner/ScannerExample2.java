@@ -12,7 +12,7 @@ public class ScannerExample2 {
         - цена
          */
         Scanner scanner = new Scanner(System.in);
-        UserInput userInput = new UserInput(scanner);
+        UserInput userInput = new UserInput();
 
         // ----- ввод производителя ----
 //        System.out.println("Введите название производителя товара:");
