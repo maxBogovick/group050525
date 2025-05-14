@@ -18,12 +18,13 @@ public class ProductApp {
         System.out.println("Введите цена товара: ");
         int productCost= scanner.nextInt();
 
+        // --------- часть 1 завершена ----------
 
         Product product = new Product(productName,productQuantity,productCost);
 
         // вычислим стоимость товара
 
-        int productTotalPrice = productQuantity * productCost;
+        int productTotalPrice = product.getQuantity() * product.getCost();
 
         System.out.println("Наименование товара: " + product.getProductName() + ", с общей стоимостью: " + productTotalPrice);
     }
