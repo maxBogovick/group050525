@@ -1,0 +1,27 @@
+1. Напишите приложение для расчета процентов по вкладу.
+- обеспечить хранение данных о счете пользователя (номер, кто владелец, текущий баланс, процентная ставка)
+- метод для расчета итоговой суммы через заданное количество месяцев
+- информация о счете
+- положить на депозит (добавить)
+- снять со счета
+
+Что делаем:
+- создаем класс BankAccount в котором будут и данные и методы
+
+BankAccount:
+String accountNumber
+String accountHolder
+double accountBalance
+int interestRate
+
++ constructor
+
+public double calculateInterest(int months){}
+
+public void printAccountInfo(){}
+
+public void deposit(int amount){}
+
+public withdraw(int amount){}
+
+
