@@ -1,4 +1,4 @@
-package lesson08.code.practice;
+package lesson08.code.practice.accountVar1;
 
 public class BankAccountDemo {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package lesson08.code.practice;
+package lesson08.code.practice.accountVar2;
 
 public class BankAccount {
 
@@ -14,9 +14,24 @@ public class BankAccount {
         this.interestRate = interestRate;
     }
 
-    public double calculateInterest(int months){
-        double calculatedInterest = accountBalance * interestRate / 100 / 12 * months;
-        return calculatedInterest;
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+
+    public double getAccountBalance() {
+        return accountBalance;
+    }
+
+    public double getInterestRate() {
+        return interestRate;
+    }
+
+    public void setAccountBalance(double accountBalance) {
+        this.accountBalance = accountBalance;
     }
 
     public void printAccountInfo(){
@@ -27,14 +42,6 @@ public class BankAccount {
         System.out.println("Текущий остаток на счете: " + accountBalance);
         System.out.println("Ставка по депозиту: " + interestRate);
 
-    }
-
-    public void deposit(int amount){
-        accountBalance = accountBalance + amount;
-    }
-
-    public void withdraw(int amount){
-        accountBalance = accountBalance - amount;
     }
 
 }

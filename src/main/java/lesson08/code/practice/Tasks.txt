@@ -25,3 +25,36 @@ public void deposit(int amount){}
 public withdraw(int amount){}
 
 
+Альтернативный вариант решения:
+
+создаем класс BankAccount в котором будут и данные и метод для вывода информации о текущем состоянии
+
+BankAccount:
+String accountNumber
+String accountHolder
+double accountBalance
+int interestRate
+
++ constructor
+
++ getter / setter
+
+public void printAccountInfo(){}
+
+
+Создадим отдельный 'сервисный' класс в котором будут методы для совершения операций со счетом
+
+Для работы этих методов, поскольку они "вырваны" из класса в котором хранятся данные, необходимо
+эти данные передать.
+Это возможно сделать двумя способами:
+- передать содержимое полей их класса BankAccount и совершив операции со значениями этих полей
+каким-то образом новые значения положить в поля класса BankAccount
+- передать в сервисный метод в качестве параметра ССЫЛКУ на экземпляр класса BankAccount
+
+BankAccountService
+
+public double calculateInterest(int months){}
+
+public void deposit(int amount){}
+
+public void withdraw(int amount){}
