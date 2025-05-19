@@ -1,4 +1,4 @@
-package lesson09.code.practice;
+package lesson09.code.practice.task2;
 
 class Car {
     private String model;
