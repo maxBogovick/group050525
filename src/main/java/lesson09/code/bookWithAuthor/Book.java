@@ -10,6 +10,14 @@ public class Book {
         this.author = author;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
     @Override
     public String toString() {
         return "Book{" +

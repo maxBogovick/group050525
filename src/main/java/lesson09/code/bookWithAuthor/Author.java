@@ -9,6 +9,14 @@ public class Author {
         this.authorInfo = authorInfo;
     }
 
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public String getAuthorInfo() {
+        return authorInfo;
+    }
+
     @Override
     public String toString() {
         return "Author{" +
