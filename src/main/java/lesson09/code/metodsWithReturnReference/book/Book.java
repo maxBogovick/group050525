@@ -1,4 +1,4 @@
-package lesson09.code.metodsWithReturnReference;
+package lesson09.code.metodsWithReturnReference.book;
 
 public class Book {
 

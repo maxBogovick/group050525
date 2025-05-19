@@ -1,4 +1,4 @@
-package lesson09.code.metodsWithReturnReference;
+package lesson09.code.metodsWithReturnReference.manager;
 
 public class ManagerDemoWithReference {
     public static void main(String[] args) {

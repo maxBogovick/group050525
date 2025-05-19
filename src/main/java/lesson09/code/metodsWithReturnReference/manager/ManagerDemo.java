@@ -1,4 +1,4 @@
-package lesson09.code.metodsWithReturnReference;
+package lesson09.code.metodsWithReturnReference.manager;
 
 import lesson07.code.scanner.UserInput;
 
