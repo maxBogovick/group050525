@@ -9,11 +9,14 @@ public class ProductDemoVar2 {
         // - название не может быть пустым (ни одного символа или все - пробелы)
         // - цена не может быть отрицательной или 0
 
+        // дополнительное условие для проверки наименования:
+        // название продукта должно быть не менее 5 символов и не более 15
+
         String newProductName = UserInputStatic.inputText("Введите название продукта: ");
         int newProductPrice = UserInputStatic.inputInt("Введите цену продукта: ");
 
 
-        boolean checkProductName = !newProductName.isBlank();
+        boolean checkProductName = (!newProductName.isBlank()) && (newProductName.length() >= 5) && (newProductName.length() < 15);
 
         boolean checkProductPrice = newProductPrice > 0;
 
