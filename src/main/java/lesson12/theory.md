@@ -45,54 +45,6 @@ System.out.println((x == 10) ? "x = 10" : "x != 10");jljjhjlljpjljlkkjklj8klikkk
 
 
 
-<details style="margin-top: 16px">
-  <summary style="cursor: pointer; color: green;"><b>English</b></summary>
-
-
-## 01. Conditional Statements
-**Block**
-
-Before we delve into control structures (conditional statements, branching statements), it's essential to understand blocks.
-
-A **block**, or a compound statement, consists of an arbitrary number of simple Java language statements enclosed in curly braces **{}**.
-Blocks determine the scope of their variables. Blocks can be nested within each other.
-
-Programs would be of little use if they performed the same actions regardless of changing external circumstances. Programs need to be capable of adapting to various situations.
-
-The **if statement** enables the selective execution of distinct parts of the program (code block). Conditional statements are often referred to as decision-making statements or branching statements.
-
-
-```if (condition) statement;```
-
-```
-if (condition) statement;
-else statement;
-```
-
-```
-if (condition) {
-    // code block
-  }
-  else {
-    // code block
-  }
-```
-
-
-
-## Ternary Operator
-The ternary operator provides an alternative to the if-else conditional statement that we are already familiar with. It is typically used in situations where there is "one condition - two possible outcomes."
-
-```
-condition ? expression1 : expression2
-```
-
-```
-System.out.println((x == 10) ? "x = 10" : "x != 10");
-```
-
-</details>
-
 ## Оператор выбора switch
 
 Оператор выбора **switch** позволяет сравнивать переменную как с одним, так и с несколькими значениями.
