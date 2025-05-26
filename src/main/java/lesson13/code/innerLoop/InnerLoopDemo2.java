@@ -6,9 +6,9 @@ public class InnerLoopDemo2 {
         построение таблицы умножения
          */
 
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 5; i++) {// индекс i - номер строки
 
-            for (int j = 1; j <= 3; j++) {
+            for (int j = 1; j <= 3; j++) { // индекс j - номер столбца
                 System.out.print("  " + i * j);
             }
 
