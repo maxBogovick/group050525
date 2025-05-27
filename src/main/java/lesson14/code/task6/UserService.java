@@ -59,7 +59,7 @@ public class UserService {
 
     private boolean checkUsername(String username) {
 
-        if (username.isBlank() || username.length() < 3) {
+        if (username.isBlank() || username.length() < 3 || checkStringContainsSpaces(username)) {
             return false;
         }
 
@@ -68,7 +68,7 @@ public class UserService {
 
     private boolean checkPassword(String password) {
 
-        if (password.isBlank() || password.length() < 8) {
+        if (password.isBlank() || password.length() < 8 || checkStringContainsSpaces(password)) {
             return false;
         }
 
@@ -77,9 +77,10 @@ public class UserService {
 
     private boolean checkEmail(String email) {
         // проверяем, что строка не пустая
-        if (email.isBlank()) {
+        if (email.isBlank() || checkStringContainsSpaces(email)) {
             return false;
         }
+
 
         // находим позицию (индекс) символа '@'
         int atIndex = email.indexOf('@');
@@ -108,6 +109,10 @@ public class UserService {
         }
 
         return true;
+    }
+
+    private boolean checkStringContainsSpaces(String stringForCheck){
+        return stringForCheck.contains(" ");
     }
 
 //    private String inputUsername(){
