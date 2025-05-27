@@ -15,7 +15,7 @@ public class InputDataValidation {
 
         if (username.length() < 5) {
             errorCode = 400;
-            errorDescription = errorDescription + "Имя пользователя не может быть менее gznb символов\n";
+            errorDescription = errorDescription + "Имя пользователя не может быть менее пяти символов\n";
         }
 
         if (checkStringContainsSpaces(username)) {
