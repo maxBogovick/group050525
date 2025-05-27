@@ -25,20 +25,7 @@ public class UserServiceWithValidationResult {
         while (!checkResult) {
             userdata = UserInputStatic.inputText("Введите " + fieldName + ":");
 
-            switch (fieldName) {
-                case "имя пользователя":
-                    validationResult = InputDataValidation.checkUsername(userdata);
-                    break;
-                case "пароль":
-                    validationResult = InputDataValidation.checkPassword(userdata);
-                    break;
-                case "email":
-                    validationResult = InputDataValidation.checkEmail(userdata);
-                    break;
-                case "описание":
-                    validationResult = InputDataValidation.checkDescription(userdata);
-                    break;
-            }
+           validationResult = validate(fieldName,userdata);
 
             if (validationResult.getCodeError() == 200) {
                 checkResult = true;
@@ -52,4 +39,18 @@ public class UserServiceWithValidationResult {
 
     }
 
+    private ValidationResult validate(String fieldName, String userdata){
+
+        switch (fieldName) {
+            case "имя пользователя":
+                return InputDataValidation.checkUsername(userdata);
+            case "пароль":
+                return InputDataValidation.checkPassword(userdata);
+            case "email":
+                return InputDataValidation.checkEmail(userdata);
+            case "описание":
+                return InputDataValidation.checkDescription(userdata);
+        }
+        return null;
+    }
 }
