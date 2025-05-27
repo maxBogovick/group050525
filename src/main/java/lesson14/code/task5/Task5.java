@@ -2,7 +2,7 @@ package lesson14.code.task5;
 
 import lesson11.code.ifStatement.UserInputStatic;
 
-public class Task4 {
+public class Task5 {
     public static void main(String[] args) {
 
         // Запросите у пользователя число N и выведите ВСЕ простые числа от 1 до N
