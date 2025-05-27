@@ -44,7 +44,7 @@ public class UserRegistrationWithService {
 
          */
 
-        UserService service = new UserService();
+        UserServiceWithInfo service = new UserServiceWithInfo();
 
         System.out.println("Регистрация нового пользователя.");
         System.out.println();
