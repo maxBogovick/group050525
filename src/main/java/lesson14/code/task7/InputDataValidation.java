@@ -3,43 +3,63 @@ package lesson14.code.task7;
 public class InputDataValidation {
 
 
-    static String checkUsername(String username) {
+    static ValidationResult checkUsername(String username) {
+
+        int errorCode = 200;
+        String errorDescription = "";
 
         if (username.isBlank()) {
-            return "Имя пользователя не может быть пустым или состоять только из пробелов";
+            errorCode = 400;
+            errorDescription = errorDescription + "Имя пользователя не может быть пустым или состоять только из пробелов \n";
         }
 
-
-        if (username.length() < 3) {
-            return "Имя пользователя не может быть менее трех символов";
+        if (username.length() < 5) {
+            errorCode = 400;
+            errorDescription = errorDescription + "Имя пользователя не может быть менее gznb символов\n";
         }
 
         if (checkStringContainsSpaces(username)) {
-            return "Имя пользователя не может содержать пробелы";
+            errorCode = 400;
+            errorDescription = errorDescription + "Имя пользователя не может содержать пробелы\n";
         }
 
-        return "Ok";
+        return new ValidationResult(errorCode, errorDescription);
     }
 
-    static String checkPassword(String password) {
+    static ValidationResult checkPassword(String password) {
+        int errorCode = 200;
+        String errorDescription = "";
 
-        if (password.isBlank()) return "Пароль не может быть пустым или состоять только из пробелов";
+        if (password.isBlank()) {
+            errorCode = 400;
+            errorDescription = errorDescription + "Пароль не может быть пустым или состоять только из пробелов \n";}
 
-        if (password.length() < 8) return "Пароль не может быть менее трех символов";
+        if (password.length() < 8) {
+            errorCode = 400;
+            errorDescription = errorDescription + "Пароль не может быть менее восьми символов \n";
+        }
 
         if (checkStringContainsSpaces(password)) {
-            return "Пароль не может содержать пробелы";
+            errorCode = 400;
+            errorDescription = errorDescription + "Пароль не может содержать пробелы\n";
         }
 
-        return "Ok";
+        return new ValidationResult(errorCode, errorDescription);
     }
 
-    static String checkEmail(String email) {
+    static ValidationResult checkEmail(String email) {
+        int errorCode = 200;
+        String errorDescription = "";
+
         // проверяем, что строка не пустая
-        if (email.isBlank()) return "Email не может быть пустым или состоять только из пробелов";
+        if (email.isBlank()) {
+            errorCode = 400;
+            errorDescription = errorDescription + "Email не может быть пустым или состоять только из пробелов/n";
+        }
 
         if (checkStringContainsSpaces(email)) {
-            return "Email не может содержать пробелы";
+            errorCode = 400;
+            errorDescription = errorDescription + "Email не может содержать пробелы \n";
         }
 
 
@@ -58,20 +78,22 @@ public class InputDataValidation {
         // при одновременном соблюдении ВСЕХ этих условий возвращаем true
 
         if ((atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < email.length() - 1) == false) {
-            return "Формат введенных данных не соответствует стандарту адреса электронной почты name@company.com";
+            errorCode = 400;
+            errorDescription = errorDescription + "Формат введенных данных не соответствует стандарту адреса электронной почты name@company.com\n";
         }
 
-        return "Ok";
+
+        return new ValidationResult(errorCode,errorDescription);
 
     }
 
-    static String checkDescription(String description) {
+    static ValidationResult checkDescription(String description) {
 
         if (description.length() > 25) {
-            return "Длина описания не должна превышать 25 символов";
+            return new ValidationResult(400,"Длина описания не должна превышать 25 символов");
         }
 
-        return "Ok";
+        return new ValidationResult(200,"");
     }
 
     private static boolean checkStringContainsSpaces(String stringForCheck) {

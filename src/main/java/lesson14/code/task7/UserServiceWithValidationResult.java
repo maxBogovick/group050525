@@ -2,7 +2,7 @@ package lesson14.code.task7;
 
 import lesson11.code.ifStatement.UserInputStatic;
 
-public class UserServiceWithInfo {
+public class UserServiceWithValidationResult {
 
     public User createNewUser() {
 
@@ -20,31 +20,31 @@ public class UserServiceWithInfo {
 
         boolean checkResult = false;
         String userdata = "";
-        String checkResultInfo = "";
+        ValidationResult validationResult = null;
 
         while (!checkResult) {
             userdata = UserInputStatic.inputText("Введите " + fieldName + ":");
 
             switch (fieldName) {
                 case "имя пользователя":
-                    checkResultInfo = InputDataValidation.checkUsername(userdata);
+                    validationResult = InputDataValidation.checkUsername(userdata);
                     break;
                 case "пароль":
-                    checkResultInfo = InputDataValidation.checkPassword(userdata);
+                    validationResult = InputDataValidation.checkPassword(userdata);
                     break;
                 case "email":
-                    checkResultInfo = InputDataValidation.checkEmail(userdata);
+                    validationResult = InputDataValidation.checkEmail(userdata);
                     break;
                 case "описание":
-                    checkResultInfo = InputDataValidation.checkDescription(userdata);
+                    validationResult = InputDataValidation.checkDescription(userdata);
                     break;
             }
 
-            if (checkResultInfo.equals("Ok")) {
+            if (validationResult.getCodeError() == 200) {
                 checkResult = true;
             } else {
                 System.out.println("Введенное " + fieldName + " не соответствует формату.");
-                System.out.println(checkResultInfo + " Повторите ввод данных.");
+                System.out.println(validationResult.getErrorDescription() + " Повторите ввод данных.");
             }
         }
 
