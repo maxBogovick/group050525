@@ -16,12 +16,14 @@ public class UserInputStatic {
     public static int inputInt(String message){
         System.out.println(message);
         int inputInt = scanner.nextInt();
+        scanner.nextLine();
         return inputInt;
     }
 
     public static double inputDouble(String message){
         System.out.println(message);
         double inputDouble = scanner.nextDouble();
+        scanner.nextLine();
         return inputDouble;
     }
 
