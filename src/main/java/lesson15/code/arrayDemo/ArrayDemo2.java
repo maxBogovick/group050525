@@ -1,4 +1,4 @@
-package lesson15.code.array1;
+package lesson15.code.arrayDemo;
 
 import lesson11.code.ifStatement.UserInputStatic;
 

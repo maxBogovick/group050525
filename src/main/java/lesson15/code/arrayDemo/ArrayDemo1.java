@@ -1,4 +1,4 @@
-package lesson15.code.array1;
+package lesson15.code.arrayDemo;
 
 public class ArrayDemo1 {
     public static void main(String[] args) {
