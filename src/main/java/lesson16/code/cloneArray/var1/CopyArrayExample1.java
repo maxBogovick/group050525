@@ -1,4 +1,4 @@
-package lesson16.code.CloneArray.var1;
+package lesson16.code.cloneArray.var1;
 
 import java.util.Arrays;
 

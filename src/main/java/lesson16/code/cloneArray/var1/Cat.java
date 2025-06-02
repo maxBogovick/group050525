@@ -1,4 +1,4 @@
-package lesson16.code.CloneArray.var2;
+package lesson16.code.cloneArray.var1;
 
 public class Cat {
 
