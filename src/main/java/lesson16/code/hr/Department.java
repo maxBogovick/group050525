@@ -12,6 +12,14 @@ public class Department {
         this.employees = employees;
     }
 
+    public String getDepartmentName() {
+        return departmentName;
+    }
+
+    public Employee[] getEmployees() {
+        return employees;
+    }
+
     @Override
     public String toString() {
         return "Department{" +

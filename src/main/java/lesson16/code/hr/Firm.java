@@ -8,12 +8,24 @@ public class Firm {
 
     private Employee director;
 
-    Department[] departments;
+    private Department[] departments;
 
     public Firm(String companyName, Employee director, Department[] departments) {
         this.companyName = companyName;
         this.director = director;
         this.departments = departments;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public Employee getDirector() {
+        return director;
+    }
+
+    public Department[] getDepartments() {
+        return departments;
     }
 
     @Override
