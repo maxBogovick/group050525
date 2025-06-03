@@ -26,6 +26,8 @@ public class ChooseSort {
           {1,2,3,4,5,6,7,8}
 
           -------------------
+
+          Сложность алгоритма O(n^2) - квадратичная
         */
 
         System.out.println("Array before sort: ");
