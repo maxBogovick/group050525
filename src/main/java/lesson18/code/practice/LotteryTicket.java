@@ -25,11 +25,37 @@ public class LotteryTicket {
 
         SourceTicketNumber source = new SourceTicketNumber();
 
+        // пройдемся по каждому номеру в билете и заполним его
         for (int i = 0; i < ticketNumbers.length; i++) {
             // нам необходимо обеспечить такой механизм заполнения, чтобы у нас не было повторяющихся номеров
 
-            ticketNumbers[i] = source.receiveTicketNumber(isRandom,sizeLotteryNumbers,idTicket,i);
+            boolean isNotFillCurrentNumber = true;
+            int currentRandomValue = 0;
 
+            // до тех пор пока мы считаем, что текущий номер не заполнен делаем следующее:
+
+            while (isNotFillCurrentNumber) {
+                // получаем очередное значение для текущего номера билета
+                currentRandomValue = source.receiveTicketNumber(isRandom, sizeLotteryNumbers, idTicket, i);
+
+                // проверяем - а есть ли уже среди ранее введенных номеров такое значение
+                // если "да" - то повторно запрашиваем номер
+                // если "нет" - то сохраняем полученное значение в текущую ячейку массива и переходим к следующему
+
+                if (isCurrentNumberNotRepeate(currentRandomValue)) {
+                    ticketNumbers[i] = currentRandomValue;
+                    isNotFillCurrentNumber = false;
+                }
+            }
         }
+    }
+
+    private boolean isCurrentNumberNotRepeate(int checkNumber) {
+        for (int i = 0; i < ticketNumbers.length; i++) {
+            if (ticketNumbers[i] == checkNumber) {
+                return false;
+            }
+        }
+        return true;
     }
 }
