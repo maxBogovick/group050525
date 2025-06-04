@@ -1,5 +1,7 @@
 package lesson18.code.practice;
 
+import java.util.Arrays;
+
 public class LotteryTicket {
 
     // массив для хранения номеров билета (мы не говорим какой он будет длины, чтобы иметь
@@ -48,6 +50,8 @@ public class LotteryTicket {
                 }
             }
         }
+        // отсортируем массив значений по возрастанию
+        Arrays.sort(ticketNumbers);
     }
 
     private boolean isCurrentNumberNotRepeate(int checkNumber) {
