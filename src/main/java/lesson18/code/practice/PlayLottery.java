@@ -19,6 +19,15 @@ public class PlayLottery {
 
         Player player = new Player("123-456-789",quantityPlayerTickets);
 
+        /*
+        после выполнения кода из 20 строки в памяти jvm будут присутствовать следующие элементы:
+        1) Player player
+        2) будет создан массив для хранения экземпляров класса LotteryTicket[] tickets
+        3) в каждой ячейки это массива будет хранится ссылка на объект LotteryTicket
+        4) в каждом объекте LotteryTicket у нас есть массив для хранения значений номеров - объект
+
+         */
+
         // в игроке мы создаем билеты (а в каждом билете заполняем данные о его номерах)
         boolean isRandom = UserInputStatic.inputBoolean("Вы хотите купить билеты с готовыми числами? (true / false)");
 
