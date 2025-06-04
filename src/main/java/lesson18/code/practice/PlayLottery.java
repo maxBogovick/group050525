@@ -51,5 +51,11 @@ public class PlayLottery {
         lottery.printWinnerNumbers();
 
 
+        // проведем подведение итогов
+
+        LotteryResult result = new LotteryResult();
+
+        result.checkLotteryResult(lottery, player);
+
     }
 }

@@ -67,6 +67,7 @@ public class Lottery {
         for (int i = 0; i < winnerNumbers.length; i++) {
             winnerNumbers[i] = allLotteryNumbers[i];
         }
+        Arrays.sort(winnerNumbers);
     }
 
     public void printWinnerNumbers(){
