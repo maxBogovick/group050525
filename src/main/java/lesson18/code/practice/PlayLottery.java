@@ -12,7 +12,6 @@ public class PlayLottery {
         int lotterySize = 36;
         int winnerSize = 5;
 
-
         // создаем игрока с определенным количеством билетов
 
         int quantityPlayerTickets = UserInputStatic.inputInt("Сколько билетов вы хотите купить: ");
@@ -34,5 +33,23 @@ public class PlayLottery {
         player.fillTickets(winnerSize,lotterySize,isRandom);
 
         player.printPlayerData();
+
+
+        // подготовим проведение лотереи
+
+        // создание экземпляра класса Lottery в котором все методы
+        Lottery lottery = new Lottery();
+
+        // создать и заполнить массив со всеми лотерейными номерами
+
+        lottery.createLotteryNumbers(lotterySize);
+
+        // провести лотерею
+
+        lottery.lotteryRound(winnerSize);
+
+        lottery.printWinnerNumbers();
+
+
     }
 }
