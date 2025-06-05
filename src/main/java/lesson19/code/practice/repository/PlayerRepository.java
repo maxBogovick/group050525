@@ -18,14 +18,12 @@ public class PlayerRepository {
         return playersCounter;
     }
 
-    public Player save(String name){
+    public boolean save(Player player){
         if (playersCounter < players.length) {
-            Player player = new Player(name);
             players[playersCounter++] = player;
-            return player;
+            return true;
         }
-
-        return null;
+        return false;
     }
 
     public Player findById(int idForSearch){
