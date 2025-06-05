@@ -14,6 +14,7 @@ public class Ticket {
         this.ticketId = nextTicketId++;
         this.numbers = new int[LotteryConfiguration.TICKET_SIZE];
         this.lotteryDiapazon = LotteryConfiguration.LOTTERY_SIZE;
+        generateTicketNumbers();
     }
 
     public void sellTicketPlayer(int playerId){
@@ -35,7 +36,7 @@ public class Ticket {
     // необходимо создать метод для заполнения массива чисел этого билета
     // либо каким-то образом в него передать эти данные
 
-    public void generateTicketNumbers(){
+    private void generateTicketNumbers(){
         int[] generated = NumberGenerator.generateRandomUniqueNumbers(lotteryDiapazon, numbers.length);
         for (int i = 0; i < numbers.length; i++) {
             numbers[i] = generated[i];
