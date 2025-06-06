@@ -3,6 +3,8 @@ package summarySession.summary0606.practice.back.repository;
 import summarySession.summary0606.practice.LotteryConfiguration;
 import summarySession.summary0606.practice.back.entity.Ticket;
 
+import java.util.Arrays;
+
 public class TicketRepository {
 
     private Ticket[] tickets;
@@ -21,6 +23,10 @@ public class TicketRepository {
             return true;
         }
         return false;
+    }
+
+    public Ticket getTicketById(int ticketId){
+        return tickets[ticketId];
     }
 
     public Ticket[] findTicketsByPlayerId(int playerId) {
@@ -61,6 +67,7 @@ public class TicketRepository {
             for (int i = ticketsSellingCounter; i < (ticketsSellingCounter + quantityTicketsToSell); i++) {
                 tickets[i].setPlayerId(playerId);
             }
+            ticketsSellingCounter = ticketsSellingCounter + quantityTicketsToSell;
             return true;
         } else {
             return false;
@@ -74,8 +81,12 @@ public class TicketRepository {
         int[] winnerTickersId = new int[LotteryConfiguration.MAX_TICKETS];
         int winTicketCounter = 0;
 
-        for (int i = 0; i < tickets.length; i++) {
-            if (checkTicketForWin(i, winnerNumbers)){
+        for (int i = 0; i < ticketsSellingCounter; i++) {
+
+            Ticket currentTicket = tickets[i];
+            int[] numberFromCurrentTicket = currentTicket.getNumbers();
+
+            if (checkTicketForWin(numberFromCurrentTicket, winnerNumbers)){
                 winnerTickersId[winTicketCounter++] = tickets[i].getTicketId();
             }
         }
@@ -86,18 +97,18 @@ public class TicketRepository {
             result[i] = winnerTickersId[i];
         }
 
+        System.out.println(Arrays.toString(result));
         return result;
     }
 
-    private boolean checkTicketForWin(int indexTicket, int[] winnerNumbers) {
+    private boolean checkTicketForWin(int[] numbersFromCurrentTicket, int[] winnerNumbers) {
 
        int matchesCounter = 0;
-       int[] ticketsNumbers = tickets[indexTicket].getNumbers();
 
         for (int i = 0; i < winnerNumbers.length; i++) {
 
-            for (int j = 0; j < ticketsNumbers.length; j++) {
-                if (winnerNumbers[i] == ticketsNumbers[j])
+            for (int j = 0; j < numbersFromCurrentTicket.length; j++) {
+                if (winnerNumbers[i] == numbersFromCurrentTicket[j])
                 {
                     matchesCounter++;
                 }

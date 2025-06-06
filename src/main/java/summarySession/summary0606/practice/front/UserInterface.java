@@ -6,6 +6,8 @@ import summarySession.summary0606.practice.back.service.LotteryService;
 import summarySession.summary0606.practice.back.service.PlayerService;
 import summarySession.summary0606.practice.back.service.TicketService;
 
+import java.util.Arrays;
+
 public class UserInterface {
 
     private LotteryService lotteryService;
@@ -64,6 +66,8 @@ public class UserInterface {
 
         int[] winnerNumbers = lotteryService.returnWinnerNumbers();
 
+        System.out.println("Выигрышные номера: " + Arrays.toString(winnerNumbers));
+
         /*
         в цикле пройтись по каждому билету
         проверить на наличие выигрышных номеров
@@ -75,10 +79,8 @@ public class UserInterface {
 
         int[] winnerTicketsId = ticketService.returnWinnerTicketsId(winnerNumbers);
 
-        for (int i = 0; i < winnerTicketsId.length; i++) {
 
-            System.out.println("Выигрышный билет: " + winnerTicketsId[i]);
-        }
+            ticketService.printWinnerTickets(winnerTicketsId);
 
     }
 }

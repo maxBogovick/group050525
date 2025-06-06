@@ -3,6 +3,8 @@ package summarySession.summary0606.practice.back.entity;
 import summarySession.summary0606.practice.LotteryConfiguration;
 import summarySession.summary0606.practice.back.service.NumberGenerator;
 
+import java.util.Arrays;
+
 public class Ticket {
     private static int nextTicketId = 1;
     private int ticketId;
@@ -47,5 +49,13 @@ public class Ticket {
         }
     }
 
-
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "ticketId=" + ticketId +
+                ", numbers=" + Arrays.toString(numbers) +
+                ", playerId=" + playerId +
+                ", lotteryDiapazon=" + lotteryDiapazon +
+                '}';
+    }
 }

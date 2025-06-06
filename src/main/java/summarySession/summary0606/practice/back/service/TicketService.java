@@ -5,6 +5,8 @@ import summarySession.summary0606.practice.LotteryConfiguration;
 import summarySession.summary0606.practice.back.entity.Ticket;
 import summarySession.summary0606.practice.back.repository.TicketRepository;
 
+import java.util.Arrays;
+
 public class TicketService {
 
     private TicketRepository ticketRepository;
@@ -29,4 +31,15 @@ public class TicketService {
         return ticketRepository.allWinnerTickets(winnerNumbers);
     }
 
+    public void printWinnerTickets(int[] winnerTicketsId){
+
+
+        for (int i = 0; i < winnerTicketsId.length; i++) {
+            int currentTicketId = winnerTicketsId[i];
+            Ticket currentTicket = ticketRepository.getTicketById(currentTicketId-1);
+
+            System.out.println(currentTicket);
+            //System.out.println("Билет № " + currentTicket + ", номера билета: " + Arrays.toString(currentTicket.getNumbers()) + ", id игрока: " + currentTicket.getPlayerId());
+        }
+    }
 }
