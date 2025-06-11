@@ -6,11 +6,11 @@ public class CalculatorHandMadeTestMultiplication {
         Calculator calculator = new Calculator();
 
         // исходные данные
-        int x = 10;
-        int y = 15;
+        int x = 5;
+        int y = -5;
 
         // ожидаемый результат
-        int expectedResult = 150;
+        int expectedResult = -25;
 
         // реальный результат (результат работы метода)
 
