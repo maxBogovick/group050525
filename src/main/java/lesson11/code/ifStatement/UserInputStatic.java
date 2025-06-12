@@ -27,6 +27,13 @@ public class UserInputStatic {
         return inputDouble;
     }
 
+    public static boolean inputBoolean(String message){
+        System.out.println(message);
+        boolean inputBoolean = scanner.nextBoolean();
+        return inputBoolean;
+    }
+
+
     public static void close(){
         scanner.close();
     }
