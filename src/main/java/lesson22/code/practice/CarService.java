@@ -58,10 +58,10 @@ public class CarService {
     // -------- для текущей задачи создадим метод первоначального автоматического заполнения каталога ----
 
     public void fillSampleCars(){
-        addCar("A1","Mercedes", 49000);
-        addCar("B2","BMW", 65000);
-        addCar("C3","Tesla", 44700);
-        addCar("D4","Audi", 40000);
-        addCar("E5","Toyota", 33000);
+        addCar("A1","Mercedes", 1000);
+        addCar("B2","BMW", 2000);
+        addCar("C3","Tesla", 3000);
+        addCar("D4","Audi", 4000);
+        addCar("E5","Toyota", 5000);
     }
 }

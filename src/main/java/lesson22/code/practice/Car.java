@@ -1,5 +1,7 @@
 package lesson22.code.practice;
 
+import java.util.Objects;
+
 public class Car {
 
     private String catalogNumber;
@@ -22,6 +24,17 @@ public class Car {
 
     public double getPrice() {
         return price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Car car)) return false;
+        return Double.compare(price, car.price) == 0 && Objects.equals(catalogNumber, car.catalogNumber) && Objects.equals(brand, car.brand);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(catalogNumber, brand, price);
     }
 
     @Override
