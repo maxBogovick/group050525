@@ -6,26 +6,12 @@ import java.util.Scanner;
 
 public class UserMenu {
 
-    private CarService catalog;
-    private Scanner scanner;
+    private CarService service;
 
-    public UserMenu(int capacity) {
-        catalog = new CarService(capacity);
-        scanner = new Scanner(System.in);
+    public UserMenu(CarService service) {
+        this.service = service;
         // предварительное заполнение
-        fillSampleCars();
-    }
-
-    /**
-     * Автоматически добавляет в каталог несколько автомобилей.
-     */
-    private void fillSampleCars() {
-        catalog.addCar(new Car("A1", "Toyota", 22000));
-        catalog.addCar(new Car("B2", "Honda", 18000));
-        catalog.addCar(new Car("C3", "BMW", 35000));
-        catalog.addCar(new Car("D4", "Audi", 40000));
-        catalog.addCar(new Car("E5", "Ford", 25000));
-        System.out.println("Каталог заполнен примерами (" + catalog.getSize() + " автомобилей).");
+        service.fillSampleCars();
     }
 
     /**
@@ -35,14 +21,13 @@ public class UserMenu {
         while (true) {
             System.out.println("=== Меню каталога автомобилей ===");
             System.out.println("1. Добавить новый автомобиль");
-            System.out.println("2. Поиск по номеру");
+            System.out.println("2. Поиск по номеру в каталоге");
             System.out.println("3. Поиск по марке");
             System.out.println("4. Поиск по ценовому диапазону");
             System.out.println("5. Показать все автомобили");
             System.out.println("0. Выход");
-            System.out.print("Выберите опцию: ");
 
-            String choice = scanner.nextLine();
+            String choice = UserInputStatic.inputText("Выберите опцию:");
             switch (choice) {
                 case "1":
                     addCarInteractive();
@@ -73,19 +58,26 @@ public class UserMenu {
         String brand = UserInputStatic.inputText("Введите марку: ");
         double price = UserInputStatic.inputDouble("Введите цену");
 
-        boolean added = catalog.addCar(new Car(number, brand, price));
-        System.out.println(added ? "Автомобиль добавлен." : "Не удалось добавить: нет места в каталоге.");
-    }
+        String addResultMessage = service.addCar(number, brand, price);
+        System.out.println(addResultMessage);
+         }
 
     private void findByNumberInteractive() {
         String number = UserInputStatic.inputText("Введите искомый номер: ");
-        Car car = catalog.findByNumber(number);
-        System.out.println(car != null ? car : "Автомобиль не найден.");
+        Car car = service.findByCatalogNumber(number);
+
+//        if (car != null){
+//            System.out.println(car);
+//        } else {
+//            System.out.println("Автомобиль с таким номером в каталоге не найден.");
+//        }
+
+        System.out.println(car != null ? car : "Автомобиль с таким номером в каталоге не найден.");
     }
 
     private void findByBrandInteractive() {
         String brand = UserInputStatic.inputText("Введите марку: ");
-        Car[] carByBrands = catalog.findByBrand(brand);
+        Car[] carByBrands = service.findByBrand(brand);
         if (carByBrands.length == 0) {
             System.out.println("Автомобили данной марки не найдены.");
         } else {
@@ -101,7 +93,7 @@ public class UserMenu {
         double min = UserInputStatic.inputDouble("Введите минимальную цену для поиска:");
         double max = UserInputStatic.inputDouble("Введите максимальную цену для поиска:");
 
-        Car[] carByPrice = catalog.findByPriceRange(min, max);
+        Car[] carByPrice = service.findByPriceRange(min, max);
         if (carByPrice.length == 0) {
             System.out.println("Автомобили в этом диапазоне не найдены.");
         } else {
@@ -113,10 +105,22 @@ public class UserMenu {
     }
 
     private void showAllCars() {
-        System.out.println("Всего в каталоге: " + catalog.getSize());
-        Car[] allCars = catalog.findAll();
-        for (Car car : allCars) {
-            System.out.println("  " + car);
+        Car[] allCars = service.getAllCars();
+        System.out.println("Всего в каталоге: " + allCars.length);
+
+//        for (int i = 0; i < allCars.length; i++) {
+//            System.out.println(" " + allCars[i]);
+//        }
+
+        /*
+        Пройдись по всему массиву и для каждого элемента из массива
+        возьми его и сохрани во временную переменную
+
+        ВСЕ ДАЛЬНЕЙШИЕ ДЕЙСТВИЯ БУДУТ ОСУЩЕСТВЛЯТЬ ТОЛЬКО С ЭТОЙ ВРЕМЕННОЙ ПЕРЕМЕННОЙ
+
+         */
+        for (Car tempCar : allCars) {
+            System.out.println("  " + tempCar);
         }
     }
 
